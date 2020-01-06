@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.volleyball.dao.UserDao">
+	<resultMap id="BaseResultMap" type="com.volleyball.bean.User">
+		<id column="id" property="id" jdbcType="INTEGER" />
+		<result column="name" property="name" jdbcType="VARCHAR" />
+		<result column="email" property="email" jdbcType="VARCHAR" />
+		<result column="password" property="password" jdbcType="CHAR" />
+		<result column="sex" property="sex" jdbcType="INTEGER" />
+		<result column="img" property="img" jdbcType="VARCHAR" />
+		<result column="status" property="status" jdbcType="INTEGER" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		id, name, email, password, sex, img, status
+	</sql>
+	<select id="selectByUser" resultMap="BaseResultMap"
+		parameterType="com.volleyball.bean.User">
+		select
+		<include refid="Base_Column_List" />
+		from user
+		where 1=1
+		<if test="name != null and name != ''">
+			and name like "%"#{name,jdbcType=VARCHAR}"%"
+		</if>
+		<if test="email != null and email != ''">
+			and email like "%"#{email,jdbcType=VARCHAR}"%"
+		</if>
+		<if test="sex != null">
+			and sex = #{sex,jdbcType=INTEGER}
+		</if>
+		<if test="status != null">
+			and status = #{status,jdbcType=INTEGER}
+		</if>
+	</select>
+	<select id="selectByName" resultMap="BaseResultMap"
+		parameterType="java.lang.String">
+		select
+		<include refid="Base_Column_List" />
+		from user
+		where name = #{name,jdbcType=VARCHAR}
+	</select>
+	<select id="selectByEmail" resultMap="BaseResultMap"
+		parameterType="java.lang.String">
+		select
+		<include refid="Base_Column_List" />
+		from user
+		where email = #{email,jdbcType=VARCHAR}
+	</select>
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
+		parameterType="java.lang.Integer">
+		select
+		<include refid="Base_Column_List" />
+		from user
+		where id = #{id,jdbcType=INTEGER}
+	</select>
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+		delete from user
+		where id = #{id,jdbcType=INTEGER}
+	</delete>
+	<insert id="insert" parameterType="com.volleyball.bean.User">
+		insert into user (id, name,
+		email,
+		password, sex, img, status
+		)
+		values (#{id,jdbcType=INTEGER},
+		#{name,jdbcType=VARCHAR},
+		#{email,jdbcType=VARCHAR},
+		#{password,jdbcType=CHAR}, #{sex,jdbcType=INTEGER},
+		#{img,jdbcType=VARCHAR},
+		#{status,jdbcType=INTEGER}
+		)
+	</insert>
+	<insert id="insertSelective" parameterType="com.volleyball.bean.User">
+		insert into user
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				id,
+			</if>
+			<if test="name != null">
+				name,
+			</if>
+			<if test="email != null">
+				email,
+			</if>
+			<if test="password != null">
+				password,
+			</if>
+			<if test="sex != null">
+				sex,
+			</if>
+			<if test="img != null">
+				img,
+			</if>
+			<if test="status != null">
+				status,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				#{id,jdbcType=INTEGER},
+			</if>
+			<if test="name != null">
+				#{name,jdbcType=VARCHAR},
+			</if>
+			<if test="email != null">
+				#{email,jdbcType=VARCHAR},
+			</if>
+			<if test="password != null">
+				#{password,jdbcType=CHAR},
+			</if>
+			<if test="sex != null">
+				#{sex,jdbcType=INTEGER},
+			</if>
+			<if test="img != null">
+				#{img,jdbcType=VARCHAR},
+			</if>
+			<if test="status != null">
+				#{status,jdbcType=INTEGER},
+			</if>
+		</trim>
+	</insert>
+	<update id="updateByPrimaryKeySelective" parameterType="com.volleyball.bean.User">
+		update user
+		<set>
+			<if test="name != null">
+				name = #{name,jdbcType=VARCHAR},
+			</if>
+			<if test="email != null">
+				email = #{email,jdbcType=VARCHAR},
+			</if>
+			<if test="password != null">
+				password = #{password,jdbcType=CHAR},
+			</if>
+			<if test="sex != null">
+				sex = #{sex,jdbcType=INTEGER},
+			</if>
+			<if test="img != null">
+				img = #{img,jdbcType=VARCHAR},
+			</if>
+			<if test="status != null">
+				status = #{status,jdbcType=INTEGER},
+			</if>
+		</set>
+		where id = #{id,jdbcType=INTEGER}
+	</update>
+	<update id="updateByPrimaryKey" parameterType="com.volleyball.bean.User">
+		update user
+		set
+		name = #{name,jdbcType=VARCHAR},
+		email = #{email,jdbcType=VARCHAR},
+		password = #{password,jdbcType=CHAR},
+		sex = #{sex,jdbcType=INTEGER},
+		img = #{img,jdbcType=VARCHAR},
+		status = #{status,jdbcType=INTEGER}
+		where id = #{id,jdbcType=INTEGER}
+	</update>
+</mapper>

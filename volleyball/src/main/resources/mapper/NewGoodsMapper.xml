@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.volleyball.dao.NewGoodsDao">
+	<resultMap id="BaseResultMap" type="com.volleyball.bean.NewGoods">
+		<id column="id" property="id" jdbcType="INTEGER" />
+		<result column="name" property="name" jdbcType="VARCHAR" />
+		<result column="kind" property="kind" jdbcType="INTEGER" />
+		<result column="price" property="price" jdbcType="INTEGER" />
+		<result column="img" property="img" jdbcType="VARCHAR" />
+		<result column="uploader_id" property="uploaderId" jdbcType="VARCHAR" />
+		<result column="uname" property="uploaderName" jdbcType="VARCHAR" />
+		<result column="upload_time" property="uploadTime" jdbcType="TIMESTAMP" />
+		<result column="isAudited" property="isaudited" jdbcType="INTEGER" />
+		<result column="audit_id" property="auditId" jdbcType="VARCHAR" />
+		<result column="audit_time" property="auditTime" jdbcType="TIMESTAMP" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		id, name, kind, price, img, uploader_id, upload_time,
+		isAudited,
+		audit_id, audit_time
+	</sql>
+	<sql id="Kind_List">
+		ng.id, ng.name, ng.kind, ng.price, ng.img, ng.uploader_id,
+		ng.upload_time, ng.isAudited,
+		ng.audit_id, ng.audit_time, u.name uname
+	</sql>
+	<select id="selectByKind" resultMap="BaseResultMap"
+		parameterType="java.lang.Integer">
+		select
+		<include refid="Kind_List" />
+		from newgoodsinfo ng, user u
+		where ng.uploader_id = u.id
+		<if test="kind != 5">
+			and ng.kind = #{kind,jdbcType=INTEGER}
+		</if>
+	</select>
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
+		parameterType="java.lang.Integer">
+		select
+		<include refid="Base_Column_List" />
+		from newgoodsinfo
+		where id = #{id,jdbcType=INTEGER}
+	</select>
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+		delete from
+		newgoodsinfo
+		where id = #{id,jdbcType=INTEGER}
+	</delete>
+	<insert id="insert" parameterType="com.volleyball.bean.NewGoods">
+		insert into newgoodsinfo (id,
+		name, kind,
+		price, img, uploader_id,
+		upload_time, isAudited, audit_id,
+		audit_time)
+		values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR},
+		#{kind,jdbcType=INTEGER},
+		#{price,jdbcType=INTEGER},
+		#{img,jdbcType=VARCHAR}, #{uploaderId,jdbcType=VARCHAR},
+		#{uploadTime,jdbcType=TIMESTAMP}, #{isaudited,jdbcType=INTEGER},
+		#{auditId,jdbcType=VARCHAR},
+		#{auditTime,jdbcType=TIMESTAMP})
+	</insert>
+	<insert id="uploadNewGoods" parameterType="com.volleyball.bean.NewGoods">
+		insert into newgoodsinfo
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				id,
+			</if>
+			<if test="name != null">
+				name,
+			</if>
+			<if test="kind != null">
+				kind,
+			</if>
+			<if test="price != null">
+				price,
+			</if>
+			<if test="img != null">
+				img,
+			</if>
+			<if test="uploaderId != null">
+				uploader_id,
+			</if>
+			<if test="uploadTime != null">
+				upload_time,
+			</if>
+			<if test="isaudited != null">
+				isAudited,
+			</if>
+			<if test="auditId != null">
+				audit_id,
+			</if>
+			<if test="auditTime != null">
+				audit_time,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				#{id,jdbcType=INTEGER},
+			</if>
+			<if test="name != null">
+				#{name,jdbcType=VARCHAR},
+			</if>
+			<if test="kind != null">
+				#{kind,jdbcType=INTEGER},
+			</if>
+			<if test="price != null">
+				#{price,jdbcType=INTEGER},
+			</if>
+			<if test="img != null">
+				#{img,jdbcType=VARCHAR},
+			</if>
+			<if test="uploaderId != null">
+				#{uploaderId,jdbcType=VARCHAR},
+			</if>
+			<if test="uploadTime != null">
+				#{uploadTime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="isaudited != null">
+				#{isaudited,jdbcType=INTEGER},
+			</if>
+			<if test="auditId != null">
+				#{auditId,jdbcType=VARCHAR},
+			</if>
+			<if test="auditTime != null">
+				#{auditTime,jdbcType=TIMESTAMP},
+			</if>
+		</trim>
+	</insert>
+	<update id="updateByPrimaryKeySelective" parameterType="com.volleyball.bean.NewGoods">
+		update newgoodsinfo
+		<set>
+			<if test="name != null">
+				name = #{name,jdbcType=VARCHAR},
+			</if>
+			<if test="kind != null">
+				kind = #{kind,jdbcType=INTEGER},
+			</if>
+			<if test="price != null">
+				price = #{price,jdbcType=INTEGER},
+			</if>
+			<if test="img != null">
+				img = #{img,jdbcType=VARCHAR},
+			</if>
+			<if test="uploaderId != null">
+				uploader_id = #{uploaderId,jdbcType=VARCHAR},
+			</if>
+			<if test="uploadTime != null">
+				upload_time = #{uploadTime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="isaudited != null">
+				isAudited = #{isaudited,jdbcType=INTEGER},
+			</if>
+			<if test="auditId != null">
+				audit_id = #{auditId,jdbcType=VARCHAR},
+			</if>
+			<if test="auditTime != null">
+				audit_time = #{auditTime,jdbcType=TIMESTAMP},
+			</if>
+		</set>
+		where id = #{id,jdbcType=INTEGER}
+	</update>
+	<update id="updateByPrimaryKey" parameterType="com.volleyball.bean.NewGoods">
+		update
+		newgoodsinfo
+		set name = #{name,jdbcType=VARCHAR},
+		kind =
+		#{kind,jdbcType=INTEGER},
+		price = #{price,jdbcType=INTEGER},
+		img =
+		#{img,jdbcType=VARCHAR},
+		uploader_id = #{uploaderId,jdbcType=VARCHAR},
+		upload_time = #{uploadTime,jdbcType=TIMESTAMP},
+		isAudited =
+		#{isaudited,jdbcType=INTEGER},
+		audit_id = #{auditId,jdbcType=VARCHAR},
+		audit_time = #{auditTime,jdbcType=TIMESTAMP}
+		where id =
+		#{id,jdbcType=INTEGER}
+	</update>
+</mapper>

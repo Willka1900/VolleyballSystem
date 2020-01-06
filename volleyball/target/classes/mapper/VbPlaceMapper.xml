@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.volleyball.dao.VbPlaceDao">
+	<resultMap id="BaseResultMap" type="com.volleyball.bean.VbPlace">
+		<id column="id" property="id" jdbcType="INTEGER" />
+		<result column="location" property="location" jdbcType="VARCHAR" />
+		<result column="province" property="province" jdbcType="VARCHAR" />
+		<result column="city" property="city" jdbcType="VARCHAR" />
+		<result column="area" property="area" jdbcType="VARCHAR" />
+		<result column="post_num" property="postNum" jdbcType="INTEGER" />
+		<result column="people" property="people" jdbcType="INTEGER" />
+		<result column="img" property="img" jdbcType="VARCHAR" />
+		<result column="publisher_id" property="publisherId" jdbcType="VARCHAR" />
+		<result column="name" property="publisherName" jdbcType="VARCHAR" />
+		<result column="publish_time" property="publishTime" jdbcType="TIMESTAMP" />
+		<result column="cantact" property="cantact" jdbcType="VARCHAR" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		id, location, province, city, area, post_num, people, img,
+		publisher_id,
+		publish_time,
+		cantact
+	</sql>
+	<sql id="PCA_list">
+		vbp.id, vbp.location, vbp.province,
+		vbp.city, vbp.area,
+		vbp.post_num, vbp.people, vbp.img,
+		vbp.publisher_id,vbp.publish_time,
+		vbp.cantact,u.name
+	</sql>
+	<select id="selectByPCA" resultMap="BaseResultMap"
+		parameterType="com.volleyball.bean.PCA">
+		select
+		<include refid="PCA_list" />
+		from vbplaceinfo vbp,user u
+		where vbp.publisher_id = u.id
+		<if test="province != '请选择省份' and province != null">
+			and vbp.province = #{province,jdbcType=VARCHAR}
+		</if>
+		<if test="city != '请选择城市' and city != null">
+			and vbp.city = #{city,jdbcType=VARCHAR}
+		</if>
+		<if test="area != '请选择地区' and area != null">
+			and vbp.area = #{area,jdbcType=VARCHAR}
+		</if>
+	</select>
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
+		parameterType="java.lang.Integer">
+		select
+		<include refid="Base_Column_List" />
+		from vbplaceinfo
+		where id = #{id,jdbcType=INTEGER}
+	</select>
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+		delete from
+		vbplaceinfo
+		where id = #{id,jdbcType=INTEGER}
+	</delete>
+	<insert id="insert" parameterType="com.volleyball.bean.VbPlace">
+		insert into vbplaceinfo (id,
+		location, province,
+		city, area, post_num,
+		people, img, publisher_id,
+		publish_time, cantact)
+		values (#{id,jdbcType=INTEGER},
+		#{location,jdbcType=VARCHAR},
+		#{province,jdbcType=VARCHAR},
+		#{city,jdbcType=VARCHAR}, #{area,jdbcType=VARCHAR},
+		#{postNum,jdbcType=INTEGER},
+		#{people,jdbcType=INTEGER},
+		#{img,jdbcType=VARCHAR},
+		#{publisherId,jdbcType=VARCHAR},
+		#{publishTime,jdbcType=TIMESTAMP}, #{cantact,jdbcType=VARCHAR})
+	</insert>
+	<insert id="insertSelective" parameterType="com.volleyball.bean.VbPlace">
+		insert into vbplaceinfo
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				id,
+			</if>
+			<if test="location != null">
+				location,
+			</if>
+			<if test="province != null">
+				province,
+			</if>
+			<if test="city != null">
+				city,
+			</if>
+			<if test="area != null">
+				area,
+			</if>
+			<if test="postNum != null">
+				post_num,
+			</if>
+			<if test="people != null">
+				people,
+			</if>
+			<if test="img != null">
+				img,
+			</if>
+			<if test="publisherId != null">
+				publisher_id,
+			</if>
+			<if test="publishTime != null">
+				publish_time,
+			</if>
+			<if test="cantact != null">
+				cantact,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				#{id,jdbcType=INTEGER},
+			</if>
+			<if test="location != null">
+				#{location,jdbcType=VARCHAR},
+			</if>
+			<if test="province != null">
+				#{province,jdbcType=VARCHAR},
+			</if>
+			<if test="city != null">
+				#{city,jdbcType=VARCHAR},
+			</if>
+			<if test="area != null">
+				#{area,jdbcType=VARCHAR},
+			</if>
+			<if test="postNum != null">
+				#{postNum,jdbcType=INTEGER},
+			</if>
+			<if test="people != null">
+				#{people,jdbcType=INTEGER},
+			</if>
+			<if test="img != null">
+				#{img,jdbcType=VARCHAR},
+			</if>
+			<if test="publisherId != null">
+				#{publisherId,jdbcType=VARCHAR},
+			</if>
+			<if test="publishTime != null">
+				#{publishTime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="cantact != null">
+				#{cantact,jdbcType=VARCHAR},
+			</if>
+		</trim>
+	</insert>
+	<update id="updateByPrimaryKeySelective" parameterType="com.volleyball.bean.VbPlace">
+		update vbplaceinfo
+		<set>
+			<if test="location != null">
+				location = #{location,jdbcType=VARCHAR},
+			</if>
+			<if test="province != null">
+				province = #{province,jdbcType=VARCHAR},
+			</if>
+			<if test="city != null">
+				city = #{city,jdbcType=VARCHAR},
+			</if>
+			<if test="area != null">
+				area = #{area,jdbcType=VARCHAR},
+			</if>
+			<if test="postNum != null">
+				post_num = #{postNum,jdbcType=INTEGER},
+			</if>
+			<if test="people != null">
+				people = #{people,jdbcType=INTEGER},
+			</if>
+			<if test="img != null">
+				img = #{img,jdbcType=VARCHAR},
+			</if>
+			<if test="publisherId != null">
+				publisher_id = #{publisherId,jdbcType=VARCHAR},
+			</if>
+			<if test="publishTime != null">
+				publish_time = #{publishTime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="cantact != null">
+				cantact = #{cantact,jdbcType=VARCHAR},
+			</if>
+		</set>
+		where id = #{id,jdbcType=INTEGER}
+	</update>
+	<update id="updateByPrimaryKey" parameterType="com.volleyball.bean.VbPlace">
+		update vbplaceinfo
+		set location = #{location,jdbcType=VARCHAR},
+		province =
+		#{province,jdbcType=VARCHAR},
+		city = #{city,jdbcType=VARCHAR},
+		area =
+		#{area,jdbcType=VARCHAR},
+		post_num = #{postNum,jdbcType=INTEGER},
+		people = #{people,jdbcType=INTEGER},
+		img = #{img,jdbcType=VARCHAR},
+		publisher_id = #{publisherId,jdbcType=VARCHAR},
+		publish_time =
+		#{publishTime,jdbcType=TIMESTAMP},
+		cantact =
+		#{cantact,jdbcType=VARCHAR}
+		where id = #{id,jdbcType=INTEGER}
+	</update>
+</mapper>

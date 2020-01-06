@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.volleyball.dao.EstimateDao">
+	<resultMap id="BaseResultMap" type="com.volleyball.bean.Estimate">
+		<id column="id" property="id" jdbcType="INTEGER" />
+		<result column="publisher_id" property="publisherId" jdbcType="VARCHAR" />
+		<result column="name" property="publisherName" jdbcType="VARCHAR" />
+		<result column="publish_time" property="publishTime" jdbcType="TIMESTAMP" />
+		<result column="goods_id" property="goodsId" jdbcType="VARCHAR" />
+	</resultMap>
+	<resultMap id="ResultMapWithBLOBs" type="com.volleyball.bean.Estimate"
+		extends="BaseResultMap">
+		<result column="content" property="content" jdbcType="LONGVARCHAR" />
+	</resultMap>
+	<sql id="Base_Select_List">
+		ei.id, ei.publisher_id, ei.publish_time, ei.goods_id,
+		u.name
+	</sql>
+	<sql id="Blob_Select_List">
+		ei.content
+	</sql>
+	<select id="selectByGoodsId" resultMap="ResultMapWithBLOBs"
+		parameterType="java.lang.String">
+		select
+		<include refid="Base_Select_List" />
+		,
+		<include refid="Blob_Select_List" />
+		from estimateinfo ei,user u
+		where ei.publisher_id = u.id
+		and ei.goods_id
+		= #{goodsId,jdbcType=VARCHAR}
+	</select>
+	<sql id="Base_Column_List">
+		id, publisher_id, publish_time, goods_id
+	</sql>
+	<sql id="Blob_Column_List">
+		content
+	</sql>
+	<select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs"
+		parameterType="java.lang.Integer">
+		select
+		<include refid="Base_Column_List" />
+		,
+		<include refid="Blob_Column_List" />
+		from estimateinfo
+		where id = #{id,jdbcType=INTEGER}
+	</select>
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+		delete from
+		estimateinfo
+		where id = #{id,jdbcType=INTEGER}
+	</delete>
+	<insert id="insert" parameterType="com.volleyball.bean.Estimate">
+		insert into estimateinfo (id,
+		publisher_id, publish_time,
+		goods_id, content)
+		values
+		(#{id,jdbcType=INTEGER}, #{publisherId,jdbcType=VARCHAR},
+		#{publishTime,jdbcType=TIMESTAMP},
+		#{goodsId,jdbcType=VARCHAR},
+		#{content,jdbcType=LONGVARCHAR})
+	</insert>
+	<insert id="insertSelective" parameterType="com.volleyball.bean.Estimate">
+		insert into estimateinfo
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				id,
+			</if>
+			<if test="publisherId != null">
+				publisher_id,
+			</if>
+			<if test="publishTime != null">
+				publish_time,
+			</if>
+			<if test="goodsId != null">
+				goods_id,
+			</if>
+			<if test="content != null">
+				content,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				#{id,jdbcType=INTEGER},
+			</if>
+			<if test="publisherId != null">
+				#{publisherId,jdbcType=VARCHAR},
+			</if>
+			<if test="publishTime != null">
+				#{publishTime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="goodsId != null">
+				#{goodsId,jdbcType=VARCHAR},
+			</if>
+			<if test="content != null">
+				#{content,jdbcType=LONGVARCHAR},
+			</if>
+		</trim>
+	</insert>
+	<update id="updateByPrimaryKeySelective" parameterType="com.volleyball.bean.Estimate">
+		update estimateinfo
+		<set>
+			<if test="publisherId != null">
+				publisher_id = #{publisherId,jdbcType=VARCHAR},
+			</if>
+			<if test="publishTime != null">
+				publish_time = #{publishTime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="goodsId != null">
+				goods_id = #{goodsId,jdbcType=VARCHAR},
+			</if>
+			<if test="content != null">
+				content = #{content,jdbcType=LONGVARCHAR},
+			</if>
+		</set>
+		where id = #{id,jdbcType=INTEGER}
+	</update>
+	<update id="updateByPrimaryKeyWithBLOBs" parameterType="com.volleyball.bean.Estimate">
+		update
+		estimateinfo
+		set publisher_id = #{publisherId,jdbcType=VARCHAR},
+		publish_time = #{publishTime,jdbcType=TIMESTAMP},
+		goods_id =
+		#{goodsId,jdbcType=VARCHAR},
+		content = #{content,jdbcType=LONGVARCHAR}
+		where id = #{id,jdbcType=INTEGER}
+	</update>
+	<update id="updateByPrimaryKey" parameterType="com.volleyball.bean.Estimate">
+		update
+		estimateinfo
+		set publisher_id = #{publisherId,jdbcType=VARCHAR},
+		publish_time = #{publishTime,jdbcType=TIMESTAMP},
+		goods_id =
+		#{goodsId,jdbcType=VARCHAR}
+		where id = #{id,jdbcType=INTEGER}
+	</update>
+</mapper>
