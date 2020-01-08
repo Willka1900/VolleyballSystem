@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50722
 File Encoding         : 65001
 
-Date: 2020-01-08 15:17:40
+Date: 2020-01-08 23:54:38
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -32,7 +32,7 @@ CREATE TABLE `admin` (
 -- ----------------------------
 -- Records of admin
 -- ----------------------------
-INSERT INTO `admin` VALUES ('1', '后生', 'houshengzai_7@163.com', 'qq112233', '0', null);
+INSERT INTO `admin` VALUES ('1', '后生', 'houshengzai@163.com', '123123', '0', null);
 
 -- ----------------------------
 -- Table structure for estimateinfo
@@ -45,21 +45,14 @@ CREATE TABLE `estimateinfo` (
   `publish_time` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT '发布时间',
   `goods_id` varchar(20) NOT NULL COMMENT '用品id',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of estimateinfo
 -- ----------------------------
-INSERT INTO `estimateinfo` VALUES ('1', '手感不错', '2', '2019-11-05 23:19:45', '1');
-INSERT INTO `estimateinfo` VALUES ('2', '我觉得可以', '1', '2019-11-06 00:19:38', '1');
-INSERT INTO `estimateinfo` VALUES ('3', '真的不错', '1', '2019-11-06 00:21:56', '1');
-INSERT INTO `estimateinfo` VALUES ('4', '真的可以喔', '1', '2019-11-06 00:24:56', '1');
-INSERT INTO `estimateinfo` VALUES ('5', '测试', '1', '2019-11-06 00:55:25', '1');
-INSERT INTO `estimateinfo` VALUES ('6', '测试一下喽', '1', '2019-11-06 14:22:22', '1');
-INSERT INTO `estimateinfo` VALUES ('7', '性价比还行', '1', '2019-11-06 21:16:47', '2');
-INSERT INTO `estimateinfo` VALUES ('8', '材质还不错。', '14', '2019-11-07 14:46:35', '4');
-INSERT INTO `estimateinfo` VALUES ('9', '有点贵。', '14', '2019-11-07 14:47:16', '6');
-INSERT INTO `estimateinfo` VALUES ('10', '录屏测试', '17', '2019-11-10 17:00:10', '1');
+INSERT INTO `estimateinfo` VALUES ('1', '我觉得海星！', '1', '2020-01-08 23:46:12', '1');
+INSERT INTO `estimateinfo` VALUES ('2', '手感不错！', '1', '2020-01-08 23:46:20', '1');
+INSERT INTO `estimateinfo` VALUES ('3', '性价比略高！', '1', '2020-01-08 23:46:27', '1');
 
 -- ----------------------------
 -- Table structure for goodsinfo
@@ -76,25 +69,19 @@ CREATE TABLE `goodsinfo` (
   `publisher_id` varchar(20) NOT NULL COMMENT '发布人id',
   `publish_time` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT '发布时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of goodsinfo
 -- ----------------------------
-INSERT INTO `goodsinfo` VALUES ('1', 'Mikasa vst560', '1', '300', '0', '0', 'goodsb7e108d1527a41faae9cb27b617738e0.jpg', '1', '2019-11-03 12:09:36');
-INSERT INTO `goodsinfo` VALUES ('2', 'Mikasa vst560', '1', '299', '0', '0', 'goodsb7e108d1527a41faae9cb27b617738e0.jpg', '1', '2019-11-03 12:29:36');
-INSERT INTO `goodsinfo` VALUES ('3', 'Mikasa vst560', '1', '298', '0', '0', 'goodsb7e108d1527a41faae9cb27b617738e0.jpg', '1', '2019-11-03 12:30:31');
-INSERT INTO `goodsinfo` VALUES ('4', '护踝', '2', '58', '0', '0', 'goodsb7e108d1527a41faae9cb27b617738e0.jpg', '1', '2019-11-03 12:30:34');
-INSERT INTO `goodsinfo` VALUES ('5', '美津浓', '3', '500', '0', '0', 'goodsb7e108d1527a41faae9cb27b617738e0.jpg', '1', '2019-11-03 14:58:48');
-INSERT INTO `goodsinfo` VALUES ('6', '亚瑟士', '3', '998', '0', '0', 'goodsb7e108d1527a41faae9cb27b617738e0.jpg', '1', '2019-11-04 16:23:42');
-INSERT INTO `goodsinfo` VALUES ('7', 'test1', '1', '666', '0', '0', 'goodsb7e108d1527a41faae9cb27b617738e0.jpg', '1', '2019-11-04 17:48:55');
-INSERT INTO `goodsinfo` VALUES ('8', 'test3', '1', '999', '0', '0', 'goodsb7e108d1527a41faae9cb27b617738e0.jpg', '1', '2019-11-04 17:49:06');
-INSERT INTO `goodsinfo` VALUES ('9', 'test2', '1', '998', '0', '0', 'goodsb7e108d1527a41faae9cb27b617738e0.jpg', '1', '2019-11-04 17:51:16');
-INSERT INTO `goodsinfo` VALUES ('10', '球网', '4', '89', '0', '0', 'goodsb7e108d1527a41faae9cb27b617738e0.jpg', '1', '2019-11-03 15:38:24');
-INSERT INTO `goodsinfo` VALUES ('11', '喜攀登', '3', '198', '0', '0', 'goodsb7e108d1527a41faae9cb27b617738e0.jpg', '1', '2019-11-07 14:47:39');
-INSERT INTO `goodsinfo` VALUES ('12', '世达', '1', '400', '0', '0', 'goodsb7e108d1527a41faae9cb27b617738e0.jpg', '17', '2019-11-10 17:00:38');
-INSERT INTO `goodsinfo` VALUES ('13', 'Mikasa 996', '1', '300', '0', '0', 'goodsb7e108d1527a41faae9cb27b617738e0.jpg', '1', '2020-01-08 10:56:09');
-INSERT INTO `goodsinfo` VALUES ('14', 'Mikasa233', '1', '666', '0', '0', '39bf26cb46a04b4faeeb437a72db176f.jpg', '1', '2020-01-08 11:17:57');
+INSERT INTO `goodsinfo` VALUES ('1', 'Mikasa 996', '1', '567', '0', '0', '53a22d499dca48779a1ef4c2489d27c7.jpg', '1', '2020-01-08 23:41:13');
+INSERT INTO `goodsinfo` VALUES ('2', 'Mikasa 888', '1', '888', '0', '0', '7ed0eb935e674dd2a4d2d4ef831e31ec.jpg', '1', '2020-01-08 23:41:53');
+INSERT INTO `goodsinfo` VALUES ('3', 'Mikasa 567', '1', '765', '0', '0', '64be0bb5689945d5957a3d1b4627a9ff.jpg', '1', '2020-01-08 23:42:08');
+INSERT INTO `goodsinfo` VALUES ('4', '护腕', '2', '30', '0', '0', 'b7539ac0fc784d6ebf23df5a0589a2e9.jpg', '1', '2020-01-08 23:42:35');
+INSERT INTO `goodsinfo` VALUES ('5', '美津浓', '3', '999', '0', '0', '443f5025745c4020addb0591fa72900d.jpg', '1', '2020-01-08 23:42:53');
+INSERT INTO `goodsinfo` VALUES ('6', '其他', '4', '666', '0', '0', '66af81564c294c44ac7794a25b6cf30e.jpg', '1', '2020-01-08 23:43:10');
+INSERT INTO `goodsinfo` VALUES ('7', 'Mikasa 456', '1', '456', '0', '0', '6607512b399b4f2ba2e0b18a3fad8283.jpg', '1', '2020-01-08 23:44:51');
+INSERT INTO `goodsinfo` VALUES ('8', 'Mikasa 654', '1', '654', '0', '0', '0ee816252cbc4b53a23ea23ed3d4efe7.jpg', '1', '2020-01-08 23:45:03');
 
 -- ----------------------------
 -- Table structure for newgoodsinfo
@@ -112,21 +99,19 @@ CREATE TABLE `newgoodsinfo` (
   `audit_id` varchar(20) DEFAULT NULL COMMENT '审核者id',
   `audit_time` timestamp NULL DEFAULT NULL COMMENT '审核时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of newgoodsinfo
 -- ----------------------------
-INSERT INTO `newgoodsinfo` VALUES ('1', '球网', '1', '88', 'goodsb7e108d1527a41faae9cb27b617738e0.jpg', '1', '2019-11-04 17:43:20', '1', '1', '2019-11-04 17:43:17');
-INSERT INTO `newgoodsinfo` VALUES ('2', '球网', '4', '89', 'goodsb7e108d1527a41faae9cb27b617738e0.jpg', '1', '2019-11-03 15:38:24', '1', '1', '2019-11-05 11:28:43');
-INSERT INTO `newgoodsinfo` VALUES ('3', '亚瑟士', '3', '998', 'goodsb7e108d1527a41faae9cb27b617738e0.jpg', '1', '2019-11-04 16:23:42', '1', '1', '2019-11-04 17:45:50');
-INSERT INTO `newgoodsinfo` VALUES ('4', 'test1', '1', '666', 'goodsb7e108d1527a41faae9cb27b617738e0.jpg', '1', '2019-11-04 17:48:55', '1', '1', '2019-11-04 17:50:56');
-INSERT INTO `newgoodsinfo` VALUES ('5', 'test3', '1', '999', 'goodsb7e108d1527a41faae9cb27b617738e0.jpg', '1', '2019-11-04 17:49:06', '1', '1', '2019-11-04 17:50:59');
-INSERT INTO `newgoodsinfo` VALUES ('6', 'test2', '1', '998', 'goodsb7e108d1527a41faae9cb27b617738e0.jpg', '1', '2019-11-04 17:51:16', '1', '1', '2019-11-04 17:51:32');
-INSERT INTO `newgoodsinfo` VALUES ('7', '喜攀登', '3', '198', null, '1', '2019-11-07 14:47:39', '1', '1', '2019-11-07 14:50:14');
-INSERT INTO `newgoodsinfo` VALUES ('8', '世达', '1', '400', 'goodsb7e108d1527a41faae9cb27b617738e0.jpg', '17', '2019-11-10 17:00:38', '1', '1', '2019-11-10 17:01:16');
-INSERT INTO `newgoodsinfo` VALUES ('9', 'Mikasa 996', '1', '300', 'goodsb7e108d1527a41faae9cb27b617738e0.jpg', '1', '2020-01-08 10:56:09', '1', '1', '2020-01-08 11:08:47');
-INSERT INTO `newgoodsinfo` VALUES ('10', 'Mikasa233', '1', '666', '39bf26cb46a04b4faeeb437a72db176f.jpg', '1', '2020-01-08 11:17:57', '1', '1', '2020-01-08 11:18:07');
+INSERT INTO `newgoodsinfo` VALUES ('1', 'Mikasa 996', '1', '567', '53a22d499dca48779a1ef4c2489d27c7.jpg', '1', '2020-01-08 23:41:13', '1', '1', '2020-01-08 23:41:22');
+INSERT INTO `newgoodsinfo` VALUES ('2', 'Mikasa 888', '1', '888', '7ed0eb935e674dd2a4d2d4ef831e31ec.jpg', '1', '2020-01-08 23:41:53', '1', '1', '2020-01-08 23:43:42');
+INSERT INTO `newgoodsinfo` VALUES ('3', 'Mikasa 567', '1', '765', '64be0bb5689945d5957a3d1b4627a9ff.jpg', '1', '2020-01-08 23:42:08', '1', '1', '2020-01-08 23:43:43');
+INSERT INTO `newgoodsinfo` VALUES ('5', '护腕', '2', '30', 'b7539ac0fc784d6ebf23df5a0589a2e9.jpg', '1', '2020-01-08 23:42:35', '1', '1', '2020-01-08 23:43:48');
+INSERT INTO `newgoodsinfo` VALUES ('6', '美津浓', '3', '999', '443f5025745c4020addb0591fa72900d.jpg', '1', '2020-01-08 23:42:53', '1', '1', '2020-01-08 23:43:50');
+INSERT INTO `newgoodsinfo` VALUES ('7', '其他', '4', '666', '66af81564c294c44ac7794a25b6cf30e.jpg', '1', '2020-01-08 23:43:10', '1', '1', '2020-01-08 23:43:52');
+INSERT INTO `newgoodsinfo` VALUES ('8', 'Mikasa 456', '1', '456', '6607512b399b4f2ba2e0b18a3fad8283.jpg', '1', '2020-01-08 23:44:51', '1', '1', '2020-01-08 23:45:07');
+INSERT INTO `newgoodsinfo` VALUES ('9', 'Mikasa 654', '1', '654', '0ee816252cbc4b53a23ea23ed3d4efe7.jpg', '1', '2020-01-08 23:45:03', '1', '1', '2020-01-08 23:45:17');
 
 -- ----------------------------
 -- Table structure for newvbplaceinfo
@@ -145,23 +130,18 @@ CREATE TABLE `newvbplaceinfo` (
   `audit_id` varchar(20) DEFAULT NULL COMMENT '审核者id',
   `audit_time` timestamp NULL DEFAULT NULL COMMENT '审核时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of newvbplaceinfo
 -- ----------------------------
-INSERT INTO `newvbplaceinfo` VALUES ('6', '涟源一中', '湖南', '娄底', '涟源市', 'c34f3e0ae90d4dfd982ca86882c59719.jpg', '1', '2019-11-04 16:22:08', '1', '1', '2019-11-04 16:22:08');
-INSERT INTO `newvbplaceinfo` VALUES ('7', '武汉大学', '湖北', '武汉', '汉阳区', 'c34f3e0ae90d4dfd982ca86882c59719.jpg', '1', '2019-11-04 16:26:02', '1', '1', '2019-11-04 16:26:02');
-INSERT INTO `newvbplaceinfo` VALUES ('8', '试试', '广东', '中山', '南头镇', 'c34f3e0ae90d4dfd982ca86882c59719.jpg', '1', '2019-11-04 15:20:06', '2', '1', '2019-11-04 15:20:02');
-INSERT INTO `newvbplaceinfo` VALUES ('9', '大学', '山东', '青岛', '市南区', 'c34f3e0ae90d4dfd982ca86882c59719.jpg', '1', '2019-11-04 16:26:37', '1', '1', '2019-11-04 16:26:38');
-INSERT INTO `newvbplaceinfo` VALUES ('10', '深圳大学', '广东', '深圳', '南山区', 'c34f3e0ae90d4dfd982ca86882c59719.jpg', '1', '2019-11-04 16:26:41', '1', '1', '2019-11-04 16:26:42');
-INSERT INTO `newvbplaceinfo` VALUES ('11', '北京农业大学', '北京', '北京', '海淀区', 'c34f3e0ae90d4dfd982ca86882c59719.jpg', '1', '2019-11-04 16:26:45', '1', '1', '2019-11-04 16:26:45');
-INSERT INTO `newvbplaceinfo` VALUES ('12', '北京林业大学', '北京', '北京', '海淀区', 'c34f3e0ae90d4dfd982ca86882c59719.jpg', '1', '2019-11-04 22:42:44', '0', null, null);
-INSERT INTO `newvbplaceinfo` VALUES ('13', '深圳外国语学校高中部', '广东', '深圳', '盐田区', 'c34f3e0ae90d4dfd982ca86882c59719.jpg', '1', '2019-11-07 14:37:59', '1', '1', '2019-11-07 14:39:03');
-INSERT INTO `newvbplaceinfo` VALUES ('14', '华南理工大学', '广东', '广州', '海珠区', 'c34f3e0ae90d4dfd982ca86882c59719.jpg', '1', '2019-11-08 16:00:36', '1', '1', '2019-11-08 16:06:58');
-INSERT INTO `newvbplaceinfo` VALUES ('16', '江西师范大学(瑶湖校区)', '江西', '南昌', '南昌县', 'c34f3e0ae90d4dfd982ca86882c59719.jpg', '17', '2019-11-10 16:59:08', '1', '1', '2019-11-10 17:01:01');
-INSERT INTO `newvbplaceinfo` VALUES ('17', '不知道', '海南', '三亚', '凤凰镇', 'c34f3e0ae90d4dfd982ca86882c59719.jpg', '1', '2020-01-07 23:55:13', '1', '1', '2020-01-07 23:58:01');
-INSERT INTO `newvbplaceinfo` VALUES ('18', '学校', '天津', '天津', '和平区', '3dc08dc00e5d4b1888d4099e0a0a5187.png', '1', '2020-01-08 11:16:10', '1', '1', '2020-01-08 11:16:21');
+INSERT INTO `newvbplaceinfo` VALUES ('1', '清华大学体育馆', '北京', '北京', '海淀区', 'ae1e37d830db4e3abc22130aebd369fe.jpg', '1', '2020-01-08 23:24:25', '1', '1', '2020-01-08 23:24:34');
+INSERT INTO `newvbplaceinfo` VALUES ('2', '北京大学体育馆', '北京', '北京', '海淀区', '93d5913aa1ed4a098828ee6850c4ace3.jpg', '1', '2020-01-08 23:27:01', '1', '1', '2020-01-08 23:33:26');
+INSERT INTO `newvbplaceinfo` VALUES ('3', '北京农业大学室外场', '北京', '北京', '海淀区', '026784769a40461ebb0e4a0ec5ee45a3.jpg', '1', '2020-01-08 23:27:26', '1', '1', '2020-01-08 23:33:28');
+INSERT INTO `newvbplaceinfo` VALUES ('4', '南昌大学体育馆', '江西', '南昌', '西湖区', '85043d4643864c159cc85132fe56c5c5.jpg', '1', '2020-01-08 23:33:55', '2', '1', '2020-01-08 23:34:42');
+INSERT INTO `newvbplaceinfo` VALUES ('5', '华南理工大学', '广东', '广州', '天河区', 'cfac4ba3691643ddbc642dbed08c42dc.jpg', '1', '2020-01-08 23:36:11', '1', '1', '2020-01-08 23:36:17');
+INSERT INTO `newvbplaceinfo` VALUES ('6', '广州大学', '广东', '广州', '海珠区', 'e4f818750921477189af4d7effafe515.jpg', '1', '2020-01-08 23:36:54', '1', '1', '2020-01-08 23:37:44');
+INSERT INTO `newvbplaceinfo` VALUES ('7', '中山大学体育馆', '广东', '珠海', '香洲区', '5e5eadbfd9644d86b4ce3607b1fa3a2c.jpg', '1', '2020-01-08 23:37:27', '1', '1', '2020-01-08 23:37:48');
 
 -- ----------------------------
 -- Table structure for postinfo
@@ -176,20 +156,15 @@ CREATE TABLE `postinfo` (
   `publish_time` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT '发布时间',
   `vbPlaceId` varchar(20) NOT NULL COMMENT '球场id',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of postinfo
 -- ----------------------------
-INSERT INTO `postinfo` VALUES ('1', '失物招领', 'mikasa排球一个', '1', '1', '2019-11-05 14:37:29', '1');
-INSERT INTO `postinfo` VALUES ('3', '再试试', '行否', '3', '1', '2019-11-06 00:40:53', '1');
-INSERT INTO `postinfo` VALUES ('4', '秃头了', '秃了秃了', '4', '1', '2019-11-06 00:47:29', '1');
-INSERT INTO `postinfo` VALUES ('5', '继续测试', '啊啊啊', '5', '1', '2019-11-06 00:54:37', '1');
-INSERT INTO `postinfo` VALUES ('6', null, '测试一哈', '1', '1', '2019-11-06 15:19:09', '1');
-INSERT INTO `postinfo` VALUES ('12', 'ads', 'adasd', '12', '1', '2019-11-06 22:04:51', '4');
-INSERT INTO `postinfo` VALUES ('15', '深外球场', '不收费，但是进学校需要学生证或者身份证登记。平时有时有学生训练。', '15', '14', '2019-11-07 14:41:47', '8');
-INSERT INTO `postinfo` VALUES ('16', null, '地点在体育馆的正下方，架空层。', '15', '14', '2019-11-07 14:42:21', '8');
-INSERT INTO `postinfo` VALUES ('17', '毕设测试', '那就试一试', '17', '1', '2019-11-08 16:33:27', '1');
+INSERT INTO `postinfo` VALUES ('1', '软件学院排球队招人啦！', '招人啦招人啦！', '1', '1', '2020-01-08 23:38:57', '1');
+INSERT INTO `postinfo` VALUES ('2', '计算机学院排球队招人啦！', '招人啦招人啦！', '2', '1', '2020-01-08 23:39:09', '1');
+INSERT INTO `postinfo` VALUES ('3', null, '教练我想打排球！', '1', '1', '2020-01-08 23:39:22', '1');
+INSERT INTO `postinfo` VALUES ('4', null, '小伙伴们快来！', '1', '1', '2020-01-08 23:39:30', '1');
 
 -- ----------------------------
 -- Table structure for region
@@ -3748,28 +3723,13 @@ CREATE TABLE `user` (
   `img` varchar(255) DEFAULT NULL COMMENT '头像',
   `status` int(2) NOT NULL DEFAULT '0' COMMENT '用户状态(0=‘正常’;1=''冻结'')',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES ('1', '后生仔', 'houshengzai_7@163.com', 'qq112233', '0', '', '0');
-INSERT INTO `user` VALUES ('2', '小懒', '1015368499@qq.com', 'xiaolanzhu', '1', null, '0');
-INSERT INTO `user` VALUES ('3', '李', 'li@163.com', 'qq112233', '0', null, '0');
-INSERT INTO `user` VALUES ('4', 'muzi', 'muzi@163.com', 'qq112233', '0', null, '0');
-INSERT INTO `user` VALUES ('5', 'muzi李', 'muzili@163.com', 'qq112233', '0', null, '0');
-INSERT INTO `user` VALUES ('6', '萧', 'xiao@163.com', 'qq112233', '0', null, '0');
-INSERT INTO `user` VALUES ('7', 'xiao', 'xiaoxx@163.com', 'qq112233', '0', null, '0');
-INSERT INTO `user` VALUES ('8', 'xxx', 'xxx@163.com', 'qq112233', '0', null, '0');
-INSERT INTO `user` VALUES ('9', 'xasd', 'xasd@163.com', 'qq112233', '0', null, '0');
-INSERT INTO `user` VALUES ('10', 'asd', 'asd@163.com', 'qq112233', '0', null, '0');
-INSERT INTO `user` VALUES ('11', 'qwe', 'qwex@163.com', 'qq112233', '0', null, '0');
-INSERT INTO `user` VALUES ('13', 'gdfg', 'gdf@163.com', 'qq112233', '1', null, '0');
-INSERT INTO `user` VALUES ('14', '深山、小懒', '491746267@qq.com', 'paiqiuzj', '1', null, '1');
-INSERT INTO `user` VALUES ('15', 'hhhh', 'hhhh@163.com', 'qq112233', '0', null, '0');
-INSERT INTO `user` VALUES ('17', '录屏测试', 'luping@163.com', 'qq11233', '0', null, '0');
-INSERT INTO `user` VALUES ('18', 'kaiyan', 'kaiyancheung@qq.com', '554514734', '1', null, '0');
-INSERT INTO `user` VALUES ('19', 'test', 'housheng1900@outlook.com', 'qq112233', '0', null, '0');
+INSERT INTO `user` VALUES ('1', '后生仔', 'houshengzai@163.com', '123123', '0', '', '0');
+INSERT INTO `user` VALUES ('20', '小小', 'xiaoxiao@163.com', '123123', '1', null, '0');
 
 -- ----------------------------
 -- Table structure for vbplaceinfo
@@ -3788,19 +3748,14 @@ CREATE TABLE `vbplaceinfo` (
   `publish_time` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT '发布时间',
   `cantact` varchar(50) DEFAULT NULL COMMENT '场馆联系方式',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of vbplaceinfo
 -- ----------------------------
-INSERT INTO `vbplaceinfo` VALUES ('1', '大镜山社区', '广东', '珠海', '香洲区', '0', '0', 'c34f3e0ae90d4dfd982ca86882c59719.jpg', '1', '2019-10-29 21:32:34', null);
-INSERT INTO `vbplaceinfo` VALUES ('3', '涟源一中', '湖南', '娄底', '涟源市', '0', '0', 'c34f3e0ae90d4dfd982ca86882c59719.jpg', '1', '2019-11-03 23:21:34', null);
-INSERT INTO `vbplaceinfo` VALUES ('4', '武汉大学', '湖北', '武汉', '汉阳区', '0', '0', 'c34f3e0ae90d4dfd982ca86882c59719.jpg', '1', '2019-11-04 16:20:37', null);
-INSERT INTO `vbplaceinfo` VALUES ('5', '大学', '山东', '青岛', '市南区', '0', '0', 'c34f3e0ae90d4dfd982ca86882c59719.jpg', '1', '2019-11-04 16:22:29', null);
-INSERT INTO `vbplaceinfo` VALUES ('6', '深圳大学', '广东', '深圳', '南山区', '0', '0', 'c34f3e0ae90d4dfd982ca86882c59719.jpg', '1', '2019-11-04 16:22:44', null);
-INSERT INTO `vbplaceinfo` VALUES ('7', '北京农业大学', '北京', '北京', '海淀区', '0', '0', 'c34f3e0ae90d4dfd982ca86882c59719.jpg', '1', '2019-11-04 16:23:14', null);
-INSERT INTO `vbplaceinfo` VALUES ('8', '深圳外国语学校高中部', '广东', '深圳', '盐田区', '0', '0', 'c34f3e0ae90d4dfd982ca86882c59719.jpg', '1', '2019-11-07 14:37:59', null);
-INSERT INTO `vbplaceinfo` VALUES ('9', '华南理工大学', '广东', '广州', '海珠区', '0', '0', 'c34f3e0ae90d4dfd982ca86882c59719.jpg', '1', '2019-11-08 16:00:36', null);
-INSERT INTO `vbplaceinfo` VALUES ('10', '江西师范大学(瑶湖校区)', '江西', '南昌', '南昌县', '0', '0', 'c34f3e0ae90d4dfd982ca86882c59719.jpg', '17', '2019-11-10 16:59:08', null);
-INSERT INTO `vbplaceinfo` VALUES ('11', '不知道', '海南', '三亚', '凤凰镇', '0', '0', 'c34f3e0ae90d4dfd982ca86882c59719.jpg', '1', '2020-01-07 23:55:13', null);
-INSERT INTO `vbplaceinfo` VALUES ('12', '学校', '天津', '天津', '和平区', '0', '0', '3dc08dc00e5d4b1888d4099e0a0a5187.png', '1', '2020-01-08 11:16:10', null);
+INSERT INTO `vbplaceinfo` VALUES ('1', '清华大学体育馆', '北京', '北京', '海淀区', '0', '0', 'ae1e37d830db4e3abc22130aebd369fe.jpg', '1', '2020-01-08 23:24:25', null);
+INSERT INTO `vbplaceinfo` VALUES ('2', '北京大学体育馆', '北京', '北京', '海淀区', '0', '0', '93d5913aa1ed4a098828ee6850c4ace3.jpg', '1', '2020-01-08 23:27:01', null);
+INSERT INTO `vbplaceinfo` VALUES ('3', '北京农业大学室外场', '北京', '北京', '海淀区', '0', '0', '026784769a40461ebb0e4a0ec5ee45a3.jpg', '1', '2020-01-08 23:27:26', null);
+INSERT INTO `vbplaceinfo` VALUES ('4', '华南理工大学', '广东', '广州', '天河区', '0', '0', 'cfac4ba3691643ddbc642dbed08c42dc.jpg', '1', '2020-01-08 23:36:11', null);
+INSERT INTO `vbplaceinfo` VALUES ('5', '广州大学', '广东', '广州', '海珠区', '0', '0', 'e4f818750921477189af4d7effafe515.jpg', '1', '2020-01-08 23:36:54', null);
+INSERT INTO `vbplaceinfo` VALUES ('6', '中山大学体育馆', '广东', '珠海', '香洲区', '0', '0', '5e5eadbfd9644d86b4ce3607b1fa3a2c.jpg', '1', '2020-01-08 23:37:27', null);
