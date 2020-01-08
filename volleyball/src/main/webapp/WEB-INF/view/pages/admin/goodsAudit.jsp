@@ -88,8 +88,8 @@
 				<c:forEach items="${newGoods}" var="newGoods">
 					<div class="col-md-3 column">
 						<div class="card" style="width: 200px">
-							<img class="card-img-top" src="/static/images/Mikasa.jpg"
-								alt="Card image" style="width: 100%">
+							<img class="card-img-top" alt="Card image" style="width: 100%"
+								src="/images/goods/${newGoods.img}" />
 							<div class="card-body">
 								<h4 class="card-title">型号：${newGoods.name }</h4>
 								<h4 class="card-title">

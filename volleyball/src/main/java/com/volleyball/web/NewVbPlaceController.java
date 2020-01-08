@@ -70,6 +70,7 @@ public class NewVbPlaceController {
 			vbPlace.setCity(newVbPlace.getCity());
 			vbPlace.setArea(newVbPlace.getArea());
 			vbPlace.setLocation(newVbPlace.getLocation());
+			vbPlace.setImg(newVbPlace.getImg());
 			vbPlace.setPublisherId(newVbPlace.getUploaderId());
 			vbPlace.setPublishTime(newVbPlace.getUploadTime());
 			try {

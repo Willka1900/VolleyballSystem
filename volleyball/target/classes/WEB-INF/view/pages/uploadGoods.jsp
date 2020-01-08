@@ -78,8 +78,13 @@
 			</div>
 		</div>
 		<br>
-		<form modelAttribute="NewGoods" id="uploadGoods" action="/uploadGoods">
+		<form id="uploadGoods" action="/uploadGoods" method="post" enctype="multipart/form-data">
 			<div class="text-center">
+				<div class="custom-file">
+					<label style="" class="custom-file-label" for="customFile">球场图片:</label>
+					<input style="display:block;margin:auto" type="file" class="custom-file-input" name="file" id="customFile">
+				</div>
+				<br>
 				<label>类别：</label> <select id="kind" name="kind" path="kind">
 					<option value="1">排球</option>
 					<option value="2">护具</option>

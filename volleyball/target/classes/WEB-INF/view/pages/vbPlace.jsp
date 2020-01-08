@@ -110,7 +110,7 @@
 				<div class="col-md-4 column text-right">
 					<c:choose>
 						<c:when test="${ sessionScope.user != null }">
-							<a href="/uploadVbPlace"><button type="button"
+							<a href="/toUploadVbPlace"><button type="button"
 									class="btn btn-primary" id="upload">上传新球场</button></a>
 						</c:when>
 						<c:otherwise>
@@ -135,8 +135,8 @@
 					<blockquote>
 						<div class="row clearfix">
 							<div class="col-md-3 column">
-								<img alt="140x140"
-									src="http://cdn.ibootstrap.cn/lorempixel.com/140/140/default.jpg" />
+								<img alt="140x140" width="140" height="140"
+									src="/images/vbplace/${place.img}" />
 							</div>
 							<div class="col-md-9 column">
 								<div class="row clearfix">

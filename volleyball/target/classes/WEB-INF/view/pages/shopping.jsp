@@ -91,11 +91,12 @@
 			<div class="col-md-4 column text-right">
 				<c:choose>
 					<c:when test="${ sessionScope.user != null }">
-						<a href="/uploadGoods"><button type="button"
+						<a href="/toUploadGoods"><button type="button"
 								class="btn btn-primary" id="upload">上新</button></a>
 					</c:when>
 					<c:otherwise>
-						<a href="/login"><button type="button" class="btn btn-default" disabled="disabled">上新</button></a>
+						<a href="/login"><button type="button" class="btn btn-default"
+								disabled="disabled">上新</button></a>
 					</c:otherwise>
 				</c:choose>
 			</div>
@@ -106,8 +107,8 @@
 				<c:forEach items="${goods}" var="goods">
 					<div class="col-md-3 column">
 						<div class="card" style="width: 200px">
-							<img class="card-img-top" src="/static/images/Mikasa.jpg"
-								alt="Card image" style="width: 100%">
+							<img class="card-img-top" alt="Card image" style="width: 100%"
+								src="/images/goods/${goods.img}" />
 							<div class="card-body">
 								<h4 class="card-title">型号：${goods.name }</h4>
 								<h4 class="card-title">售价：${goods.price }RMB</h4>

@@ -1,18 +1,26 @@
 package com.volleyball.web;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.io.FilenameUtils;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.github.pagehelper.PageHelper;
@@ -59,14 +67,37 @@ public class VbPlaceController {
 		return modelAndView;
 	}
 
-	@RequestMapping("/uploadVbPlace")
-	public ModelAndView uploadVbPlace(@ModelAttribute("NewVbPlace") NewVbPlace newVbPlace) {
-		ModelAndView modelAndView = new ModelAndView("uploadVbPlace");
-		if (null != newVbPlace.getProvince()) {
+	@RequestMapping("/toUploadVbPlace")
+	public String toUploadVbPlace(HttpServletRequest request){
+		
+		return "uploadVbPlace";
+	}
+	
+	@RequestMapping(value = "/uploadVbPlace", method = RequestMethod.POST)
+	public ModelAndView uploadVbPlace(NewVbPlace newVbPlace, @RequestParam("file")MultipartFile pic, ModelMap map) throws IOException {
+			/*上传图片*/
+			// 设置一下保存的路径
+			String path = "E:/pic/vbplace/";
+			File dir = new File(path);
+			if (!dir.isDirectory())
+				dir.mkdir();
+			// 给文件一个新的名字
+			String filename = UUID.randomUUID().toString().replaceAll("-", "");
+			// 获取文件的扩展名
+			String ext = FilenameUtils.getExtension(pic.getOriginalFilename());
+			try {
+				// 把文件存到指定的位置
+				pic.transferTo(new File(path + filename + "." + ext));
+			} catch (IllegalStateException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			newVbPlace.setImg(filename + "." + ext);
 			HttpSession session = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest()
 					.getSession();// 通过监听器获取request再获取session
 			Integer userId = ((User) session.getAttribute("user")).getId();// 获取session中的用户id
-			modelAndView = new ModelAndView("redirect:/vbPlace");
+			ModelAndView modelAndView = new ModelAndView("redirect:/vbPlace");
 			newVbPlace.setUploadTime(new Date());
 			newVbPlace.setUploaderId(String.valueOf(userId));
 			try {
@@ -74,7 +105,6 @@ public class VbPlaceController {
 			} catch (Exception e) {
 				System.out.println(e);
 			}
-		}
 		return modelAndView;
 	}
 }

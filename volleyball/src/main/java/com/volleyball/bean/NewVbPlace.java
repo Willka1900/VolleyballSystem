@@ -24,6 +24,8 @@ public class NewVbPlace {
     private String auditId;
 
     private Date auditTime;
+    
+    private String img;
 
     public Integer getId() {
         return id;
@@ -111,5 +113,13 @@ public class NewVbPlace {
 
 	public void setUploaderName(String uploaderName) {
 		this.uploaderName = uploaderName;
+	}
+
+	public String getImg() {
+		return img;
+	}
+
+	public void setImg(String img) {
+		this.img = img;
 	}
 }

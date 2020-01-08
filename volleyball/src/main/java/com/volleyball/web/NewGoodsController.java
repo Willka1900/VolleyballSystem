@@ -73,6 +73,7 @@ public class NewGoodsController {
 			goods.setKind(newGoods.getKind());
 			goods.setName(newGoods.getName());
 			goods.setPrice(newGoods.getPrice());
+			goods.setImg(newGoods.getImg());
 			goods.setPublisherId(newGoods.getUploaderId());
 			goods.setPublishTime(newGoods.getUploadTime());
 			try {

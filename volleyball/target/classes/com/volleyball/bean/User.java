@@ -1,5 +1,7 @@
 package com.volleyball.bean;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class User {
     private Integer id;
 
@@ -14,6 +16,8 @@ public class User {
     private String img;
 
     private Integer status;
+    
+    private MultipartFile file;
 
     public Integer getId() {
         return id;
@@ -70,4 +74,12 @@ public class User {
     public void setStatus(Integer status) {
         this.status = status;
     }
+
+	public MultipartFile getFile() {
+		return file;
+	}
+
+	public void setFile(MultipartFile file) {
+		this.file = file;
+	}
 }

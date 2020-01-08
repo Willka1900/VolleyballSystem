@@ -78,8 +78,13 @@
 			</div>
 		</div>
 		<br>
-		<form modelAttribute="NewVbPlace" id="pcaGo" action="/uploadVbPlace">
+		<form id="pcaGo" action="/uploadVbPlace" method="post" enctype="multipart/form-data">
 			<div class="text-center">
+				<div class="custom-file">
+					<label style="" class="custom-file-label" for="customFile">球场图片:</label>
+					<input style="display:block;margin:auto" type="file" class="custom-file-input" name="file" id="customFile">
+				</div>
+				<br>
 				<!-- 省市区三级联动开始 -->
 				<label>区域：</label>
 				<div class="btn-group">

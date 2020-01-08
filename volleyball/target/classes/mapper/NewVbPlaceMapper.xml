@@ -7,6 +7,7 @@
 		<result column="province" property="province" jdbcType="VARCHAR" />
 		<result column="city" property="city" jdbcType="VARCHAR" />
 		<result column="area" property="area" jdbcType="VARCHAR" />
+		<result column="img" property="img" jdbcType="VARCHAR" />
 		<result column="uploader_id" property="uploaderId" jdbcType="VARCHAR" />
 		<result column="name" property="uploaderName" jdbcType="VARCHAR" />
 		<result column="upload_time" property="uploadTime" jdbcType="TIMESTAMP" />
@@ -15,14 +16,14 @@
 		<result column="audit_time" property="auditTime" jdbcType="TIMESTAMP" />
 	</resultMap>
 	<sql id="Base_Column_List">
-		id, location, province, city, area, uploader_id,
+		id, location, province, city, area,img, uploader_id,
 		upload_time, isAudited,
 		audit_id,
 		audit_time
 	</sql>
 	<sql id="PCA_list">
 		nvbp.id, nvbp.location, nvbp.province, nvbp.city,
-		nvbp.area, nvbp.uploader_id,
+		nvbp.area, nvbp.uploader_id,nvbp.img,
 		nvbp.upload_time, nvbp.isAudited,
 		nvbp.audit_id,
 		nvbp.audit_time,u.name
@@ -61,7 +62,7 @@
 		city, area, uploader_id,
 		upload_time,
 		isAudited, audit_id,
-		audit_time)
+		audit_time,img)
 		values (#{id,jdbcType=INTEGER},
 		#{location,jdbcType=VARCHAR},
 		#{province,jdbcType=VARCHAR},
@@ -70,7 +71,8 @@
 		#{uploadTime,jdbcType=TIMESTAMP},
 		#{isaudited,jdbcType=INTEGER},
 		#{auditId,jdbcType=VARCHAR},
-		#{auditTime,jdbcType=TIMESTAMP})
+		#{auditTime,jdbcType=TIMESTAMP},
+		#{img,jdbcType=VARCHAR})
 	</insert>
 	<insert id="uploadNewVbPlace" parameterType="com.volleyball.bean.NewVbPlace">
 		insert into newvbplaceinfo
@@ -105,6 +107,9 @@
 			<if test="auditTime != null">
 				audit_time,
 			</if>
+			<if test="img != null">
+				img,
+			</if>
 		</trim>
 		<trim prefix="values (" suffix=")" suffixOverrides=",">
 			<if test="id != null">
@@ -136,6 +141,9 @@
 			</if>
 			<if test="auditTime != null">
 				#{auditTime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="img != null">
+				#{img,jdbcType=VARCHAR},
 			</if>
 		</trim>
 	</insert>
@@ -169,6 +177,9 @@
 			<if test="auditTime != null">
 				audit_time = #{auditTime,jdbcType=TIMESTAMP},
 			</if>
+			<if test="img != null">
+				img = #{img,jdbcType=VARCHAR},
+			</if>
 		</set>
 		where id = #{id,jdbcType=INTEGER}
 	</update>
@@ -186,7 +197,8 @@
 		isAudited =
 		#{isaudited,jdbcType=INTEGER},
 		audit_id = #{auditId,jdbcType=VARCHAR},
-		audit_time = #{auditTime,jdbcType=TIMESTAMP}
+		audit_time = #{auditTime,jdbcType=TIMESTAMP},
+		img = #{img,jdbcType=VARCHAR}
 		where id =
 		#{id,jdbcType=INTEGER}
 	</update>
