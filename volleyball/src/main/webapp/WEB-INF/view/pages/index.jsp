@@ -75,7 +75,7 @@
 					<li><a href="/about">关于</a></li>
 				</ul>
 				<div class="">
-					<img height="510" src="/static/images/vb-top.png" />
+					<img height="510" src="/static/images/top.jpg" />
 				</div>
 			</div>
 		</div>

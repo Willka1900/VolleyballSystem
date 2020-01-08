@@ -68,7 +68,7 @@
 					<li><a href="/userManage">用户管理区</a></li>
 				</ul>
 				<div class="">
-					<img height="510" src="/static/images/vb-top.png" />
+					<img height="510" src="/static/images/top.jpg" />
 				</div>
 			</div>
 		</div>
