@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.volleyball.dao.NewVbPlaceDao">
+	<resultMap id="BaseResultMap" type="com.volleyball.bean.NewVbPlace">
+		<id column="id" property="id" jdbcType="INTEGER" />
+		<result column="location" property="location" jdbcType="VARCHAR" />
+		<result column="province" property="province" jdbcType="VARCHAR" />
+		<result column="city" property="city" jdbcType="VARCHAR" />
+		<result column="area" property="area" jdbcType="VARCHAR" />
+		<result column="img" property="img" jdbcType="VARCHAR" />
+		<result column="uploader_id" property="uploaderId" jdbcType="VARCHAR" />
+		<result column="name" property="uploaderName" jdbcType="VARCHAR" />
+		<result column="upload_time" property="uploadTime" jdbcType="TIMESTAMP" />
+		<result column="isAudited" property="isaudited" jdbcType="INTEGER" />
+		<result column="audit_id" property="auditId" jdbcType="VARCHAR" />
+		<result column="audit_time" property="auditTime" jdbcType="TIMESTAMP" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		id, location, province, city, area,img, uploader_id,
+		upload_time, isAudited,
+		audit_id,
+		audit_time
+	</sql>
+	<sql id="PCA_list">
+		nvbp.id, nvbp.location, nvbp.province, nvbp.city,
+		nvbp.area, nvbp.uploader_id,nvbp.img,
+		nvbp.upload_time, nvbp.isAudited,
+		nvbp.audit_id,
+		nvbp.audit_time,u.name
+	</sql>
+	<select id="selectByPCA" resultMap="BaseResultMap"
+		parameterType="com.volleyball.bean.PCA">
+		select
+		<include refid="PCA_list" />
+		from newvbplaceinfo nvbp,user u
+		where nvbp.uploader_id = u.id
+		<if test="province != '请选择省份' and province != null">
+			and nvbp.province = #{province,jdbcType=VARCHAR}
+		</if>
+		<if test="city != '请选择城市' and city != null">
+			and nvbp.city = #{city,jdbcType=VARCHAR}
+		</if>
+		<if test="area != '请选择地区' and area != null">
+			and nvbp.area = #{area,jdbcType=VARCHAR}
+		</if>
+	</select>
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
+		parameterType="java.lang.Integer">
+		select
+		<include refid="Base_Column_List" />
+		from newvbplaceinfo
+		where id = #{id,jdbcType=INTEGER}
+	</select>
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+		delete from
+		newvbplaceinfo
+		where id = #{id,jdbcType=INTEGER}
+	</delete>
+	<insert id="insert" parameterType="com.volleyball.bean.NewVbPlace">
+		insert into newvbplaceinfo
+		(id, location, province,
+		city, area, uploader_id,
+		upload_time,
+		isAudited, audit_id,
+		audit_time,img)
+		values (#{id,jdbcType=INTEGER},
+		#{location,jdbcType=VARCHAR},
+		#{province,jdbcType=VARCHAR},
+		#{city,jdbcType=VARCHAR}, #{area,jdbcType=VARCHAR},
+		#{uploaderId,jdbcType=VARCHAR},
+		#{uploadTime,jdbcType=TIMESTAMP},
+		#{isaudited,jdbcType=INTEGER},
+		#{auditId,jdbcType=VARCHAR},
+		#{auditTime,jdbcType=TIMESTAMP},
+		#{img,jdbcType=VARCHAR})
+	</insert>
+	<insert id="uploadNewVbPlace" parameterType="com.volleyball.bean.NewVbPlace">
+		insert into newvbplaceinfo
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				id,
+			</if>
+			<if test="location != null">
+				location,
+			</if>
+			<if test="province != null">
+				province,
+			</if>
+			<if test="city != null">
+				city,
+			</if>
+			<if test="area != null">
+				area,
+			</if>
+			<if test="uploaderId != null">
+				uploader_id,
+			</if>
+			<if test="uploadTime != null">
+				upload_time,
+			</if>
+			<if test="isaudited != null">
+				isAudited,
+			</if>
+			<if test="auditId != null">
+				audit_id,
+			</if>
+			<if test="auditTime != null">
+				audit_time,
+			</if>
+			<if test="img != null">
+				img,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				#{id,jdbcType=INTEGER},
+			</if>
+			<if test="location != null">
+				#{location,jdbcType=VARCHAR},
+			</if>
+			<if test="province != null">
+				#{province,jdbcType=VARCHAR},
+			</if>
+			<if test="city != null">
+				#{city,jdbcType=VARCHAR},
+			</if>
+			<if test="area != null">
+				#{area,jdbcType=VARCHAR},
+			</if>
+			<if test="uploaderId != null">
+				#{uploaderId,jdbcType=VARCHAR},
+			</if>
+			<if test="uploadTime != null">
+				#{uploadTime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="isaudited != null">
+				#{isaudited,jdbcType=INTEGER},
+			</if>
+			<if test="auditId != null">
+				#{auditId,jdbcType=VARCHAR},
+			</if>
+			<if test="auditTime != null">
+				#{auditTime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="img != null">
+				#{img,jdbcType=VARCHAR},
+			</if>
+		</trim>
+	</insert>
+	<update id="updateByPrimaryKeySelective" parameterType="com.volleyball.bean.NewVbPlace">
+		update newvbplaceinfo
+		<set>
+			<if test="location != null">
+				location = #{location,jdbcType=VARCHAR},
+			</if>
+			<if test="province != null">
+				province = #{province,jdbcType=VARCHAR},
+			</if>
+			<if test="city != null">
+				city = #{city,jdbcType=VARCHAR},
+			</if>
+			<if test="area != null">
+				area = #{area,jdbcType=VARCHAR},
+			</if>
+			<if test="uploaderId != null">
+				uploader_id = #{uploaderId,jdbcType=VARCHAR},
+			</if>
+			<if test="uploadTime != null">
+				upload_time = #{uploadTime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="isaudited != null">
+				isAudited = #{isaudited,jdbcType=INTEGER},
+			</if>
+			<if test="auditId != null">
+				audit_id = #{auditId,jdbcType=VARCHAR},
+			</if>
+			<if test="auditTime != null">
+				audit_time = #{auditTime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="img != null">
+				img = #{img,jdbcType=VARCHAR},
+			</if>
+		</set>
+		where id = #{id,jdbcType=INTEGER}
+	</update>
+	<update id="updateByPrimaryKey" parameterType="com.volleyball.bean.NewVbPlace">
+		update
+		newvbplaceinfo
+		set location = #{location,jdbcType=VARCHAR},
+		province =
+		#{province,jdbcType=VARCHAR},
+		city = #{city,jdbcType=VARCHAR},
+		area =
+		#{area,jdbcType=VARCHAR},
+		uploader_id = #{uploaderId,jdbcType=VARCHAR},
+		upload_time = #{uploadTime,jdbcType=TIMESTAMP},
+		isAudited =
+		#{isaudited,jdbcType=INTEGER},
+		audit_id = #{auditId,jdbcType=VARCHAR},
+		audit_time = #{auditTime,jdbcType=TIMESTAMP},
+		img = #{img,jdbcType=VARCHAR}
+		where id =
+		#{id,jdbcType=INTEGER}
+	</update>
+</mapper>
