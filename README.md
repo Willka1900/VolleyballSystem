@@ -1,5 +1,5 @@
 <h1 align="center">VolleyballSystem</h1>
-<h2 align="center"> 基于Spring+Spring MVC+Mybatis(Maven方式构建)+Redis</h2>
+<h2 align="center"> 基于Spring+Spring MVC+Mybatis+Redis(Maven方式构建)</h2>
 <p align="center">排球之家——排球资源整合系统。旨在整合排球场地资源供众多排球人获取信息，扩展排球交友圈，以及整合排球用品资源信息，推荐给有需要的排球人，推动排球的推广和发展，仍在开发中。</p>
 
 <img src="https://github.com/Houshengzai/VolleyballSystem/blob/master/preview/9.jpg">
