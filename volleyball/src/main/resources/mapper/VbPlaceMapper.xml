@@ -199,4 +199,16 @@
 		#{cantact,jdbcType=VARCHAR}
 		where id = #{id,jdbcType=INTEGER}
 	</update>
+	<update id="updatePostNum" parameterType="java.lang.Integer">
+		update vbplaceinfo
+		set post_num = post_num + 1
+		where id
+		= #{id,jdbcType=INTEGER}
+	</update>
+	<update id="updatePeople" parameterType="java.lang.Integer">
+		update vbplaceinfo
+		set people = people + 1
+		where id
+		= #{id,jdbcType=INTEGER}
+	</update>
 </mapper>

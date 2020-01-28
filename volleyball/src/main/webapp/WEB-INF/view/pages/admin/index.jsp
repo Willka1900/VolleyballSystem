@@ -48,7 +48,7 @@
 				</h1>
 				<br>
 				<h1 class="text-right">
-					<small>————排球人的聚集地</small>
+					<small>————排球人聚集地</small>
 				</h1>
 			</div>
 			<div class="col-md-2 column">

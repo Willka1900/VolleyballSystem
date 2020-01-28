@@ -7,9 +7,9 @@ package com.volleyball.bean;
  **/
 public class PCA {
 	private String province;// 省
-	
+
 	private String city;// 市
-	
+
 	private String area;// 区
 
 	public String getProvince() {
@@ -36,4 +36,16 @@ public class PCA {
 		this.area = area;
 	}
 
+	@Override
+	public String toString() {
+		return this.city + "-" + this.area;
+	}
+
+	public String toAll() {
+		return "请选择城市-请选择地区";
+	}
+
+	public String toCity() {
+		return this.city + "-请选择地区";
+	}
 }

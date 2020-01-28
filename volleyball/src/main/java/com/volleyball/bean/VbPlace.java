@@ -123,4 +123,11 @@ public class VbPlace {
 		this.publisherName = publisherName;
 	}
 
+	public PCA toPCA(){
+		PCA pca = new PCA();
+		pca.setProvince(this.province);
+		pca.setCity(this.city);
+		pca.setArea(this.area);
+		return pca;
+	}
 }

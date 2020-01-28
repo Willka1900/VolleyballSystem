@@ -12,6 +12,7 @@ public class AdminServiceImpl implements AdminService {
 	@Autowired
 	public AdminDao adminDao;
 
+	
 	public Admin getById(Integer id) {
 		return adminDao.selectByPrimaryKey(id);
 	}

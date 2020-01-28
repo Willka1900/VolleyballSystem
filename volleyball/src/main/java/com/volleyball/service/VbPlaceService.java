@@ -30,4 +30,10 @@ public interface VbPlaceService {
 	 * @return
 	 */
 	VbPlace selectById(Integer id);
+	
+	/**更新球场信息
+	 * @param vbPlace
+	 * @return
+	 */
+	boolean updateVbPlace(VbPlace vbPlace);
 }

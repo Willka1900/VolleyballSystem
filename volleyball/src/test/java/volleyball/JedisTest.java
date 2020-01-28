@@ -105,7 +105,6 @@ class RedisJava02 {
 		map = jedis.hgetAll("favorite");
 		for (Map.Entry<String, String> m : map.entrySet()) {
 			System.out.println("Key:" + m.getKey() + "; value:" + m.getValue());
-
 		}
 	}
 

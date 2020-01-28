@@ -20,4 +20,16 @@ public interface VbPlaceDao {
 
 	// 手写
 	List<VbPlace> selectByPCA(PCA pca);
+	
+	/**贴数+1
+	 * @param id
+	 * @return
+	 */
+	int updatePostNum(Integer id);
+	
+	/**人气值+1
+	 * @param id
+	 * @return
+	 */
+	int updatePeople(Integer id);
 }
