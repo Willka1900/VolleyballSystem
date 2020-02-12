@@ -6,9 +6,9 @@
 
 ### 如何使用
 ```
-$ git clone https://github.com/withstars/Blog-System
+$ git clone https://github.com/Houshengzai/VolleyballSystem
 
-$ cd Blog-System
+$ cd volleyball
 
 $ mvn clean compile
 
@@ -19,7 +19,6 @@ $ mvn clean install
 $ mvn jetty:run
 
 http://localhost:8080
-http://localhost:8080/admin 
 ```
 ### 说明
 1. 如果使用该项目出现问题，请联系我 houshengzai_7@163.com
