@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50722
 File Encoding         : 65001
 
-Date: 2020-01-08 23:54:38
+Date: 2020-02-08 21:41:46
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -130,7 +130,7 @@ CREATE TABLE `newvbplaceinfo` (
   `audit_id` varchar(20) DEFAULT NULL COMMENT '审核者id',
   `audit_time` timestamp NULL DEFAULT NULL COMMENT '审核时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of newvbplaceinfo
@@ -138,10 +138,11 @@ CREATE TABLE `newvbplaceinfo` (
 INSERT INTO `newvbplaceinfo` VALUES ('1', '清华大学体育馆', '北京', '北京', '海淀区', 'ae1e37d830db4e3abc22130aebd369fe.jpg', '1', '2020-01-08 23:24:25', '1', '1', '2020-01-08 23:24:34');
 INSERT INTO `newvbplaceinfo` VALUES ('2', '北京大学体育馆', '北京', '北京', '海淀区', '93d5913aa1ed4a098828ee6850c4ace3.jpg', '1', '2020-01-08 23:27:01', '1', '1', '2020-01-08 23:33:26');
 INSERT INTO `newvbplaceinfo` VALUES ('3', '北京农业大学室外场', '北京', '北京', '海淀区', '026784769a40461ebb0e4a0ec5ee45a3.jpg', '1', '2020-01-08 23:27:26', '1', '1', '2020-01-08 23:33:28');
-INSERT INTO `newvbplaceinfo` VALUES ('4', '南昌大学体育馆', '江西', '南昌', '西湖区', '85043d4643864c159cc85132fe56c5c5.jpg', '1', '2020-01-08 23:33:55', '2', '1', '2020-01-08 23:34:42');
+INSERT INTO `newvbplaceinfo` VALUES ('4', '南昌大学体育馆', '江西', '南昌', '西湖区', '85043d4643864c159cc85132fe56c5c5.jpg', '1', '2020-01-08 23:33:55', '1', '1', '2020-01-26 11:50:38');
 INSERT INTO `newvbplaceinfo` VALUES ('5', '华南理工大学', '广东', '广州', '天河区', 'cfac4ba3691643ddbc642dbed08c42dc.jpg', '1', '2020-01-08 23:36:11', '1', '1', '2020-01-08 23:36:17');
 INSERT INTO `newvbplaceinfo` VALUES ('6', '广州大学', '广东', '广州', '海珠区', 'e4f818750921477189af4d7effafe515.jpg', '1', '2020-01-08 23:36:54', '1', '1', '2020-01-08 23:37:44');
 INSERT INTO `newvbplaceinfo` VALUES ('7', '中山大学体育馆', '广东', '珠海', '香洲区', '5e5eadbfd9644d86b4ce3607b1fa3a2c.jpg', '1', '2020-01-08 23:37:27', '1', '1', '2020-01-08 23:37:48');
+INSERT INTO `newvbplaceinfo` VALUES ('8', '广州体育学院', '广东', '广州', '天河区', '49920529a3e84fdfae749e69fcf28a9a.jpg', '1', '2020-01-26 11:56:36', '1', '1', '2020-01-26 11:57:58');
 
 -- ----------------------------
 -- Table structure for postinfo
@@ -156,7 +157,7 @@ CREATE TABLE `postinfo` (
   `publish_time` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT '发布时间',
   `vbPlaceId` varchar(20) NOT NULL COMMENT '球场id',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of postinfo
@@ -165,6 +166,9 @@ INSERT INTO `postinfo` VALUES ('1', '软件学院排球队招人啦！', '招人
 INSERT INTO `postinfo` VALUES ('2', '计算机学院排球队招人啦！', '招人啦招人啦！', '2', '1', '2020-01-08 23:39:09', '1');
 INSERT INTO `postinfo` VALUES ('3', null, '教练我想打排球！', '1', '1', '2020-01-08 23:39:22', '1');
 INSERT INTO `postinfo` VALUES ('4', null, '小伙伴们快来！', '1', '1', '2020-01-08 23:39:30', '1');
+INSERT INTO `postinfo` VALUES ('5', '商学院排球队招人啦！', '商学院排球队招人啦！加qq**********', '5', '1', '2020-01-28 21:28:53', '1');
+INSERT INTO `postinfo` VALUES ('6', '校排球队招人啦！', '招人啦招人啦', '6', '1', '2020-01-30 18:28:48', '2');
+INSERT INTO `postinfo` VALUES ('7', '校排球队招人啦', '等的就是你！', '7', '1', '2020-01-30 18:32:14', '4');
 
 -- ----------------------------
 -- Table structure for region
@@ -3723,13 +3727,15 @@ CREATE TABLE `user` (
   `img` varchar(255) DEFAULT NULL COMMENT '头像',
   `status` int(2) NOT NULL DEFAULT '0' COMMENT '用户状态(0=‘正常’;1=''冻结'')',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of user
 -- ----------------------------
 INSERT INTO `user` VALUES ('1', '后生仔', 'houshengzai@163.com', '123123', '0', '', '0');
 INSERT INTO `user` VALUES ('20', '小小', 'xiaoxiao@163.com', '123123', '1', null, '0');
+INSERT INTO `user` VALUES ('21', 'hillv2', 'lizhifeng.picc@hotmail.com', 'picc2020', '0', null, '0');
+INSERT INTO `user` VALUES ('22', 'Bigger', 'Bigger@163.com', '123123', '0', null, '0');
 
 -- ----------------------------
 -- Table structure for vbplaceinfo
@@ -3748,14 +3754,16 @@ CREATE TABLE `vbplaceinfo` (
   `publish_time` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT '发布时间',
   `cantact` varchar(50) DEFAULT NULL COMMENT '场馆联系方式',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of vbplaceinfo
 -- ----------------------------
-INSERT INTO `vbplaceinfo` VALUES ('1', '清华大学体育馆', '北京', '北京', '海淀区', '0', '0', 'ae1e37d830db4e3abc22130aebd369fe.jpg', '1', '2020-01-08 23:24:25', null);
-INSERT INTO `vbplaceinfo` VALUES ('2', '北京大学体育馆', '北京', '北京', '海淀区', '0', '0', '93d5913aa1ed4a098828ee6850c4ace3.jpg', '1', '2020-01-08 23:27:01', null);
+INSERT INTO `vbplaceinfo` VALUES ('1', '清华大学体育馆', '北京', '北京', '海淀区', '3', '0', 'ae1e37d830db4e3abc22130aebd369fe.jpg', '1', '2020-01-08 23:24:25', null);
+INSERT INTO `vbplaceinfo` VALUES ('2', '北京大学体育馆', '北京', '北京', '海淀区', '1', '0', '93d5913aa1ed4a098828ee6850c4ace3.jpg', '1', '2020-01-08 23:27:01', null);
 INSERT INTO `vbplaceinfo` VALUES ('3', '北京农业大学室外场', '北京', '北京', '海淀区', '0', '0', '026784769a40461ebb0e4a0ec5ee45a3.jpg', '1', '2020-01-08 23:27:26', null);
-INSERT INTO `vbplaceinfo` VALUES ('4', '华南理工大学', '广东', '广州', '天河区', '0', '0', 'cfac4ba3691643ddbc642dbed08c42dc.jpg', '1', '2020-01-08 23:36:11', null);
+INSERT INTO `vbplaceinfo` VALUES ('4', '华南理工大学', '广东', '广州', '天河区', '1', '0', 'cfac4ba3691643ddbc642dbed08c42dc.jpg', '1', '2020-01-08 23:36:11', null);
 INSERT INTO `vbplaceinfo` VALUES ('5', '广州大学', '广东', '广州', '海珠区', '0', '0', 'e4f818750921477189af4d7effafe515.jpg', '1', '2020-01-08 23:36:54', null);
 INSERT INTO `vbplaceinfo` VALUES ('6', '中山大学体育馆', '广东', '珠海', '香洲区', '0', '0', '5e5eadbfd9644d86b4ce3607b1fa3a2c.jpg', '1', '2020-01-08 23:37:27', null);
+INSERT INTO `vbplaceinfo` VALUES ('9', '南昌大学体育馆', '江西', '南昌', '西湖区', '0', '0', '85043d4643864c159cc85132fe56c5c5.jpg', '1', '2020-01-08 23:33:55', null);
+INSERT INTO `vbplaceinfo` VALUES ('10', '广州体育学院', '广东', '广州', '天河区', '0', '0', '49920529a3e84fdfae749e69fcf28a9a.jpg', '1', '2020-01-26 11:56:36', null);

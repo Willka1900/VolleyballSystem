@@ -107,7 +107,7 @@
 				<!-- 省市区三级联动结束 -->
 				<label>位置：</label><input type="text" name="location" /><br>
 				<br> <label>联系方式：</label><input type="text" name="contact"
-					placeholder="非收费场馆可不填" /><br>
+					placeholder="收费场馆必填" /><br>
 				<br>
 				<button type="submit" class="btn btn-primary" id="upload">上传</button>
 			</div>

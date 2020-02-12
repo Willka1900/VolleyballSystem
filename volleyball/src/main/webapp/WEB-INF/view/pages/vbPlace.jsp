@@ -124,12 +124,12 @@
 		<br>
 		<div class="row clearfix">
 			<div class="col-md-12 column">
-				<ul class="nav nav-tabs">
+				<ul class="nav nav-tabs"> 
 					<li><a href="#">免费</a></li>
 					<li><a href="#">收费</a></li>
-					<li><a href="#">最新发表</a></li>
+					<li><a href="#">最新发布</a></li>
 					<li><a href="#">最多帖数</a></li>
-					<li><a href="#">最高人气</a></li>
+					<!-- <li><a href="#">最高人气</a></li> -->
 				</ul>
 				<c:forEach items="${vbPlaces}" var="place">
 					<blockquote>
@@ -156,7 +156,8 @@
 										</p>
 									</div>
 									<div class="col-md-4 column">
-										<p>帖数 ：${place.postNum} | 人气 ：${place.people}</p>
+										<%-- <p>帖数 ：${place.postNum} | 人气 ：${place.people}</p> --%>
+										<p>帖数 ：${place.postNum}</p>
 									</div>
 								</div>
 								<br>

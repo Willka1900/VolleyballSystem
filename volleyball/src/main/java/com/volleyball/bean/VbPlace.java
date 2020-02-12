@@ -25,7 +25,7 @@ public class VbPlace {
 
     private Date publishTime;
 
-    private String cantact;
+    private String contact;
 
     public Integer getId() {
         return id;
@@ -107,12 +107,12 @@ public class VbPlace {
         this.publishTime = publishTime;
     }
 
-    public String getCantact() {
-        return cantact;
+    public String getContact() {
+        return contact;
     }
 
-    public void setCantact(String cantact) {
-        this.cantact = cantact == null ? null : cantact.trim();
+    public void setContact(String cantoct) {
+        this.contact = contact == null ? null : contact.trim();
     }
 
 	public String getPublisherName() {

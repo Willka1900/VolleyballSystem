@@ -13,20 +13,20 @@
 		<result column="publisher_id" property="publisherId" jdbcType="VARCHAR" />
 		<result column="name" property="publisherName" jdbcType="VARCHAR" />
 		<result column="publish_time" property="publishTime" jdbcType="TIMESTAMP" />
-		<result column="cantact" property="cantact" jdbcType="VARCHAR" />
+		<result column="contact" property="contact" jdbcType="VARCHAR" />
 	</resultMap>
 	<sql id="Base_Column_List">
 		id, location, province, city, area, post_num, people, img,
 		publisher_id,
 		publish_time,
-		cantact
+		contact
 	</sql>
 	<sql id="PCA_list">
 		vbp.id, vbp.location, vbp.province,
 		vbp.city, vbp.area,
 		vbp.post_num, vbp.people, vbp.img,
 		vbp.publisher_id,vbp.publish_time,
-		vbp.cantact,u.name
+		vbp.contact,u.name
 	</sql>
 	<select id="selectByPCA" resultMap="BaseResultMap"
 		parameterType="com.volleyball.bean.PCA">
@@ -61,7 +61,7 @@
 		location, province,
 		city, area, post_num,
 		people, img, publisher_id,
-		publish_time, cantact)
+		publish_time, contact)
 		values (#{id,jdbcType=INTEGER},
 		#{location,jdbcType=VARCHAR},
 		#{province,jdbcType=VARCHAR},
@@ -70,7 +70,7 @@
 		#{people,jdbcType=INTEGER},
 		#{img,jdbcType=VARCHAR},
 		#{publisherId,jdbcType=VARCHAR},
-		#{publishTime,jdbcType=TIMESTAMP}, #{cantact,jdbcType=VARCHAR})
+		#{publishTime,jdbcType=TIMESTAMP}, #{contact,jdbcType=VARCHAR})
 	</insert>
 	<insert id="insertSelective" parameterType="com.volleyball.bean.VbPlace">
 		insert into vbplaceinfo
@@ -105,8 +105,8 @@
 			<if test="publishTime != null">
 				publish_time,
 			</if>
-			<if test="cantact != null">
-				cantact,
+			<if test="contact != null">
+				contact,
 			</if>
 		</trim>
 		<trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -140,8 +140,8 @@
 			<if test="publishTime != null">
 				#{publishTime,jdbcType=TIMESTAMP},
 			</if>
-			<if test="cantact != null">
-				#{cantact,jdbcType=VARCHAR},
+			<if test="contact != null">
+				#{contact,jdbcType=VARCHAR},
 			</if>
 		</trim>
 	</insert>
@@ -175,8 +175,8 @@
 			<if test="publishTime != null">
 				publish_time = #{publishTime,jdbcType=TIMESTAMP},
 			</if>
-			<if test="cantact != null">
-				cantact = #{cantact,jdbcType=VARCHAR},
+			<if test="contact != null">
+				contact = #{contact,jdbcType=VARCHAR},
 			</if>
 		</set>
 		where id = #{id,jdbcType=INTEGER}
@@ -195,8 +195,8 @@
 		publisher_id = #{publisherId,jdbcType=VARCHAR},
 		publish_time =
 		#{publishTime,jdbcType=TIMESTAMP},
-		cantact =
-		#{cantact,jdbcType=VARCHAR}
+		contact =
+		#{contact,jdbcType=VARCHAR}
 		where id = #{id,jdbcType=INTEGER}
 	</update>
 	<update id="updatePostNum" parameterType="java.lang.Integer">
