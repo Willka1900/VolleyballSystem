@@ -5,6 +5,7 @@
 <img src="https://github.com/Houshengzai/VolleyballSystem/blob/master/preview/9.jpg">
 
 ### 如何使用
+  先用volleyball.sql在MySQL中建库
 ```
 $ git clone https://github.com/Houshengzai/VolleyballSystem
 
