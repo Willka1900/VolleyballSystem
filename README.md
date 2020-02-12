@@ -8,7 +8,7 @@
 ```
 $ git clone https://github.com/Houshengzai/VolleyballSystem
 
-$ cd volleyball
+$ cd VolleyballSystem/volleyball
 
 $ mvn clean compile
 
